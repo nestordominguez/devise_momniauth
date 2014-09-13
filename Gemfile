@@ -12,7 +12,14 @@ gem 'sass-rails', '~> 4.0.2'
 # Use for create users models
 gem 'devise'
 
+# Use for login with Gmail
+gem "omniauth-google-oauth2"
 
+group :test do
+  gem 'cucumber-rails', '1.4.0', :require => false
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
+  gem 'rspec-rails'
+end
 
 
 # Use Uglifier as compressor for JavaScript assets

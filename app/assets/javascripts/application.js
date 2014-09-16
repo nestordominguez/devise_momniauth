@@ -31,6 +31,7 @@ window.gpAsyncInit = function() {
       response_type: 'code',
       cookie_policy: 'single_host_origin',
       client_id: '197077783653-780i79ovk8hes2sh69lkd2p6fnq914a6.apps.googleusercontent.com',
+      //client_secret: '0T8jlCCffZHZ51zeMS3fsi7t ',
       scope: 'email profile'
     }, function(response) {
       if (response && !response.error) {

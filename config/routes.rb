@@ -1,17 +1,20 @@
 DeviseMomniauth::Application.routes.draw do
   
   get "welcome/index"
+  resources :users
 
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create', via: 'get'
   match '/auth/failure', :to => 'sessions#failure', via: 'get'
   
-  devise_for :users, path: "auth", 
-    path_names: { sign_in: 'login', sign_out: 'logout', 
-    password: 'secret', confirmation: 'verification', 
-    unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' },
-    :controllers => { registrations: 'registrations',
-          :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks" }        
+
+           # path: "auth", 
+           #  path_names: { sign_in: 'login', sign_out: 'logout', 
+           #  password: 'secret', confirmation: 'verification', 
+           #  unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' },
+          #http://localhost:3000/auth/auth/google_oauth2/
+          # http://localhost:3000/users/auth/google_oauth2/callback  <-- original
 
   
   # The priority is based upon order of creation: first created -> highest priority.

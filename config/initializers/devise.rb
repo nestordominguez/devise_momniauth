@@ -1,6 +1,7 @@
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+client_id = '197077783653-780i79ovk8hes2sh69lkd2p6fnq914a6.apps.googleusercontent.com'
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -258,5 +259,10 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  config.omniauth :google_oauth2, "APP_ID", "APP_SECRET", { access_type: "offline", approval_prompt: "" }
+  config.omniauth_path_prefix = "/users/auth"
+  config.omniauth :google_oauth2, ENV["APP_ID"] = client_id, ENV["APP_SECRET"] = '0T8jlCCffZHZ51zeMS3fsi7t', 
+                  { access_type: "offline", approval_prompt: "", 
+                  scope: 'email, profile', 
+                  #:strategy_class => OmniAuth::Strategies::OAuth2,
+                  :client_options => { :ssl => { :verify => false } } }
 end

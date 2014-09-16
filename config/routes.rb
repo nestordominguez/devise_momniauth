@@ -1,13 +1,15 @@
 DeviseMomniauth::Application.routes.draw do
   
   get "welcome/index"
-  resources :users
+  #resources :users
 
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create', via: 'get'
   match '/auth/failure', :to => 'sessions#failure', via: 'get'
   
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks" }   
+  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks",
+                                      :registrations => "users/registrations",
+                                      registrations: 'registrations' } 
   #devise_for :users, :controllers => {:omniauth_callbacks => "omniauth_callbacks" }   
 
            # path: "auth", 

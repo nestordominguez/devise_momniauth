@@ -1,9 +1,11 @@
 <% if user_signed_in? %>
 	<h1>Welcome <%= current_user.name %></h1>
+	<% inf = "Welcome #{current_user.name}" %>
+	<p><%= social_share_button_tag(inf) %></p>
 <%else%>
 	<h1>Welcome</h1>
 <%end%>
-<p>Find me in app/views/welcome/index.html.erb</p>
+
 
 <% unless user_signed_in? %>
 

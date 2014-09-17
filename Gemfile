@@ -15,6 +15,9 @@ gem 'devise'
 # Use for login with Gmail
 gem "omniauth-google-oauth2"
 
+# Use for create button share
+gem 'social-share-button'
+
 group :test do
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'

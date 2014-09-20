@@ -1,15 +1,3 @@
-<% if user_signed_in? %>
-	<h1>Welcome <%= current_user.name %></h1>
-	<% inf = "Welcome #{current_user.name}" %>
-	<p><%= social_share_button_tag(inf) %></p>
-<%else%>
-	<h1>Welcome</h1>
-<%end%>
 
 
-<% unless user_signed_in? %>
 
-	  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-	  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> |
-	  <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
-<%end%>

@@ -18,11 +18,15 @@ gem "omniauth-google-oauth2"
 # Use for create button share
 gem 'social-share-button'
 
+# For create cart
+gem 'acts_as_shopping_cart', '~> 0.2.1'
+
 group :test do
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
   gem 'rspec-rails'
 end
+
 
 
 # Use Uglifier as compressor for JavaScript assets
